@@ -4,7 +4,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 引入通用样式文件
-import 'common/sass/index.sass'
+import 'sass/index.sass'
 // import store from './store' // 引入store
 
 Vue.config.productionTip = false
@@ -19,5 +19,5 @@ new Vue({
   el: '#app',
   router,
   // store,
-  render: h => h(App)
+  render: h => h(App),
 })
