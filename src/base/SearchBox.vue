@@ -1,38 +1,52 @@
 <template>
   <div class="search-block">
-    <a class="btn-location" href="#">北京</a>
-    <div class="search">
-      <i></i>
+    <a class="btn-location" href="javascript:void(0)" @click="locationClick">北京</a>
+    <div class="search" @click="searchBoxClick" >
+      <i class="el-icon-search"></i>
       <span>搜索目的地、玩法、景区</span>
     </div>
-    <a href="#" class="btn-map">Logo</a>
+    <a href="javascript:void(0)" class="btn-map" @click="mapClick">
+      <i class="el-icon-location-outline"></i>
+    </a>
   </div>
 </template>
 <script>
-import InputBox from 'base/InputBox'
 export default {
   name: '',
   data () {
     return {}
+  },
+  methods: {
+    locationClick () {
+      console.log('地点选定被点击')
+    },
+    searchBoxClick () {
+      console.log('中间搜索框被选定')
+    },
+    mapClick () {
+      console.log('右边map按钮被点击')
+    },
   },
 }
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='scss' scoped='' type='text/css'>
 $textColor: white;
+$block-side-w: 240px;
 .search-block {
   position: absolute;
+  top: 0;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   width: 100%;
-  top: 0;
   margin: 50px 0;
-  z-index: 3;
   .btn-location {
     position: relative;
-    width: 240px;
-    margin: 0 80px 0 40px;
+    width: $block-side-w;
+    padding: 0 80px 0 40px;
     font-size: 90px;
     text-align: center;
     color: $textColor;
@@ -40,7 +54,7 @@ $textColor: white;
     &::after {
       content: '';
       position: absolute;
-      right: -50px;
+      right: 15px;
       top: 50%;
       transform: translateY(-50%);
       height: 0;
@@ -55,13 +69,16 @@ $textColor: white;
     font-size: 60px;
     width: 1200px;
     border-radius: 80px;
-    text-indent: 2em;
+    text-indent: 20px;
     color: $textColor;
   }
   .btn-map {
     display: inline-block;
-    width: 240px;
-    margin: 0 50px;
+    width: 120px;
+    padding: 0 50px 0 20px;
+    color: $textColor;
+    font-size: 100px;
+    text-align: center;
   }
 }
 </style>
