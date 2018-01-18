@@ -22,6 +22,7 @@
       <block-title title="人气推荐" subTitle="用心推荐、优质体验"></block-title>
       <server-card></server-card>
     </div>
+    <tar-bar></tar-bar>
   </div>
 </template>
 
@@ -32,6 +33,7 @@ import BarSlide from 'base/BarSlide'
 import BlockTitle from 'base/BlockTitle'
 import UserCard from 'base/UserCard'
 import ServerCard from 'base/ServerCard'
+import TarBar from 'base/TarBar'
 
 export default {
   name: 'Index',
@@ -46,6 +48,7 @@ export default {
     BlockTitle,
     UserCard,
     ServerCard,
+    TarBar,
   },
 }
 </script>
