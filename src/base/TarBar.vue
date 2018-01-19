@@ -20,11 +20,11 @@ export default {
         {
           img: 'el-icon-menu',
           text: '首页',
-          src: '/',
+          src: '/home',
         }, {
           img: 'el-icon-share',
           text: '旅途',
-          src: '/',
+          src: '/travels',
         }, {
           img: 'el-icon-plus',
           text: '添加',
@@ -32,11 +32,11 @@ export default {
         }, {
           img: 'el-icon-edit',
           text: '留言',
-          src: '/',
+          src: '/chat',
         }, {
           img: 'el-icon-service',
           text: '我',
-          src: '/',
+          src: '/myself',
         },
       ],
       currentIndex: 0,
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     routeTo (item, index) {
-      console.log(item)
+      this.$router.push(item.src)
       this.currentIndex = index
     },
   },
@@ -52,7 +52,7 @@ export default {
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='scss' scoped='' type='text/css'>
-$grey-text: #919191;
+@import "src/common/sass/variable.sass";
 .tar-bar-list {
   position: fixed;
   left: 0;
@@ -61,7 +61,7 @@ $grey-text: #919191;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 250px;
+  height: $tar-bar-height;
   background: white;
   border-top: 1px solid $grey-text;
   .tar-bar-item {
