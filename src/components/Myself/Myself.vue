@@ -2,7 +2,7 @@
   <div>
     <mt-header title="我" class="m-header">
     </mt-header>
-    <user-card class="card-margin"></user-card>
+    <user-card class="card-margin" to="/user/1"></user-card>
     <mt-cell title="我的小店"
              icon="more"
              value="带 icon"
@@ -15,14 +15,14 @@
               icon="more"
               value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="/user/1/buy">
               <!-- slot=icon 自定义图片内容 -->
       </mt-cell>
       <mt-cell title="我出售的"
               icon="more"
               value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="/user/1/sell">
               <!-- slot=icon 自定义图片内容 -->
       </mt-cell>
     </div>
@@ -40,7 +40,7 @@
               icon="more"
               value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="/user/1/travels">
               <!-- slot=icon 自定义图片内容 -->
       </mt-cell>
     </div>
@@ -49,7 +49,7 @@
               icon="more"
               value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="/user/1/likes">
               <!-- slot=icon 自定义图片内容 -->
       </mt-cell>
     </div>
@@ -78,10 +78,6 @@ export default {
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='scss' scoped='' type='text/css'>
-.m-header {
-  height: 160px;
-  font-size: 80px;
-}
 .card-margin {
   margin: 50px 0;
 }

@@ -26,8 +26,8 @@ export default {
     margin-right: 10px;
     padding: 0 20px;
     border-radius: 20px;
-    line-height: 70px;
-    font-size: 50px;
+    line-height: 80px;
+    font-size: 40px;
     color: white;
     background: orange;
   }

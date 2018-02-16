@@ -1,5 +1,6 @@
 const state = {
-  showBar: true
+  showBar: true,
+  myInfo: {}
 }
 
 export default state

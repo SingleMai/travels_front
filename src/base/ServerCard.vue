@@ -46,7 +46,7 @@ $grey-text: #919191;
     .info-left {
       .title {
         margin: 20px 0;
-        font-size: 90px;
+        font-size: 60px;
       }
       .views {
         margin: 20px 0;

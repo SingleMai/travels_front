@@ -6,8 +6,14 @@ const Home = resolve => { import('components/Home/Home').then(module => { resolv
 const Chat = resolve => { import('components/Chat/Chat').then(module => { resolve(module) }) }
 const Myself = resolve => { import('components/Myself/Myself').then(module => { resolve(module) }) }
 const UserHome = resolve => { import('components/Myself/src/UserHome').then(module => { resolve(module) }) }
+const UserEdit = resolve => { import('components/Myself/src/UserEdit').then(module => { resolve(module) }) }
+const UserBuy = resolve => { import('components/Myself/src/UserBuy').then(module => { resolve(module) }) }
+const UserSell = resolve => { import('components/Myself/src/UserSell').then(module => { resolve(module) }) }
+const UserTravels = resolve => { import('components/Myself/src/UserTravels').then(module => { resolve(module) }) }
+const UserLikes = resolve => { import('components/Myself/src/UserLikes').then(module => { resolve(module) }) }
 const Travels = resolve => { import('components/Travels/Travels').then(module => { resolve(module) }) }
 const TravelsCreate = resolve => { import('components/Travels/src/TravelsCreate').then(module => { resolve(module) }) }
+const Servies = resolve => { import('components/Servies/Servies').then(module => { resolve(module) }) }
 
 Vue.use(Router)
 
@@ -38,6 +44,10 @@ export default new Router({
         }
       ]
     }, {
+      name: 'Servies',
+      path: '/servies/:id',
+      component: Servies
+    }, {
       name: 'CreateTravels',
       path: '/travels/create',
       component: TravelsCreate
@@ -45,6 +55,26 @@ export default new Router({
       name: 'UserHome',
       path: '/user/:id',
       component: UserHome
+    }, {
+      name: 'UserEdit',
+      path: '/user/:id/edit',
+      component: UserEdit
+    }, {
+      name: 'UserBuy',
+      path: '/user/:id/buy',
+      component: UserBuy
+    }, {
+      name: 'UserSell',
+      path: '/user/:id/sell',
+      component: UserSell
+    }, {
+      name: 'UserTravels',
+      path: '/user/:id/travels',
+      component: UserTravels
+    }, {
+      name: 'UserLikes',
+      path: '/user/:id/likes',
+      component: UserLikes
     }
   ]
 })

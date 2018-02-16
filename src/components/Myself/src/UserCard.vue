@@ -1,5 +1,5 @@
 <template>
-  <div class="user-card-block">
+  <div class="user-card-block" @click.stop="router2">
     <div class="block-left">
       <div class="head-img"></div>
       <div class="user-info">
@@ -24,6 +24,21 @@ export default {
   name: '',
   data () {
     return {}
+  },
+  props: {
+    data: {
+      type: Object
+    }
+  },
+  methods: {
+    router2 () {
+      this.$router.push(this.to)
+    }
+  },
+  props: {
+    to: {
+      type: String
+    }
   }
 }
 </script>

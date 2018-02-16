@@ -12,4 +12,6 @@
 
 // export const getHasRelation = (state) => state.hasRelation
 
-export const getShowBar = (state) => state.getShowBar
+export const getShowBar = (state) => state.showBar
+
+export const getMyInfo = (state) => state.myInfo

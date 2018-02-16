@@ -20,7 +20,7 @@
     </div>
     <div class="playing-recommend">
       <block-title title="人气推荐" subTitle="用心推荐、优质体验"></block-title>
-      <server-card></server-card>
+      <server-card @click.native.stop="routeToService"></server-card>
     </div>
   </div>
 </template>
@@ -36,6 +36,12 @@ export default {
   name: '',
   data () {
     return {}
+  },
+  methods: {
+    routeToService () {
+      console.log(1)
+      this.$router.push(`/servies/1`)
+    }
   },
   components: {
     CarouselV,
