@@ -1,7 +1,7 @@
 <template>
   <div>
-    <search-box></search-box>
-    <carousel-v></carousel-v>
+    <search-box @search="route2('/search')"></search-box>
+    <carousel-v :data="carousels"></carousel-v>
     <div class="barBlock">
       <p class="head">
         <i class="el-icon-picture"></i>
@@ -20,11 +20,12 @@
     </div>
     <div class="playing-recommend">
       <block-title title="人气推荐" subTitle="用心推荐、优质体验"></block-title>
-      <server-card @click.native.stop="routeToService"></server-card>
+      <server-card @click.native.stop="route2('/servies/1')"></server-card>
     </div>
   </div>
 </template>
 <script>
+import { CarouselApi } from 'api'
 import CarouselV from 'base/CarouselV'
 import SearchBox from 'base/SearchBox'
 import BarSlide from 'base/BarSlide'
@@ -34,13 +35,21 @@ import ServerCard from 'base/ServerCard'
 
 export default {
   name: '',
+  mounted () {
+    this.$_getCarousel()
+  },
   data () {
-    return {}
+    return {
+      carousels: []
+    }
   },
   methods: {
-    routeToService () {
-      console.log(1)
-      this.$router.push(`/servies/1`)
+    route2 (url) {
+      this.$router.push(url)
+    },
+    async $_getCarousel () {
+      const data = await CarouselApi.getCarousel()
+      this.carousels = data
     }
   },
   components: {

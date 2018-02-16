@@ -1,9 +1,11 @@
 import axios from 'axios'
 import * as Travels from 'api/src/travels'
 import * as Users from 'api/src/users'
+import * as Carousel from 'api/src/carousel'
 
 export const TravelsApi = Travels
 export const UsersApi = Users
+export const CarouselApi = Carousel
 
 // 拦截响应response，并做一些错误处理
 axios.interceptors.response.use((response) => {

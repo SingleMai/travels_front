@@ -21,7 +21,7 @@ export default {
       console.log('地点选定被点击')
     },
     searchBoxClick () {
-      console.log('中间搜索框被选定')
+      this.$emit('search')
     },
     mapClick () {
       console.log('右边map按钮被点击')

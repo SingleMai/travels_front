@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // 异步加载组件
 const Index = resolve => { import('components/Index').then(module => { resolve(module) }) }
 const Home = resolve => { import('components/Home/Home').then(module => { resolve(module) }) }
+const MSearch = resolve => { import('components/Home/src/MSearch').then(module => { resolve(module) }) }
 const Chat = resolve => { import('components/Chat/Chat').then(module => { resolve(module) }) }
 const Myself = resolve => { import('components/Myself/Myself').then(module => { resolve(module) }) }
 const UserHome = resolve => { import('components/Myself/src/UserHome').then(module => { resolve(module) }) }
@@ -43,6 +44,10 @@ export default new Router({
           component: Myself
         }
       ]
+    }, {
+      name: 'Search',
+      path: '/search',
+      component: MSearch
     }, {
       name: 'Servies',
       path: '/servies/:id',
