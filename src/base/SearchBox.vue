@@ -25,8 +25,8 @@ export default {
     },
     mapClick () {
       console.log('右边map按钮被点击')
-    },
-  },
+    }
+  }
 }
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->

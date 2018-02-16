@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import Mint from 'mint-ui'
+import store from './store' // 引入store
+import 'mint-ui/lib/style.css'
 // 引入通用样式文件
 import 'sass/index.sass'
-// import store from './store' // 引入store
-
+import 'sass/mint.sass'
 Vue.config.productionTip = false
-Vue.use(ElementUI)
 
+Vue.use(Mint)
 // 富文本插件
 // import VueQuillEditor from 'vue-quill-editor'
 // Vue.use(VueQuillEditor)
@@ -18,6 +18,6 @@ Vue.use(ElementUI)
 new Vue({
   el: '#app',
   router,
-  // store,
-  render: h => h(App),
+  store,
+  render: h => h(App)
 })

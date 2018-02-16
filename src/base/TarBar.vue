@@ -20,34 +20,34 @@ export default {
         {
           img: 'el-icon-menu',
           text: '首页',
-          src: '/home',
+          src: '/home'
         }, {
           img: 'el-icon-share',
           text: '旅途',
-          src: '/travels',
+          src: '/travels'
         }, {
           img: 'el-icon-plus',
           text: '添加',
-          src: '/',
+          src: '/'
         }, {
           img: 'el-icon-edit',
           text: '留言',
-          src: '/chat',
+          src: '/chat'
         }, {
           img: 'el-icon-service',
           text: '我',
-          src: '/myself',
-        },
+          src: '/myself'
+        }
       ],
-      currentIndex: 0,
+      currentIndex: 0
     }
   },
   methods: {
     routeTo (item, index) {
       this.$router.push(item.src)
       this.currentIndex = index
-    },
-  },
+    }
+  }
 }
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
@@ -63,7 +63,7 @@ export default {
   width: 100%;
   height: $tar-bar-height;
   background: white;
-  border-top: 1px solid $grey-text;
+  box-shadow: 30px 0 80px pink;
   .tar-bar-item {
     flex: auto;
     display: flex;

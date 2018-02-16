@@ -5,7 +5,9 @@ const Index = resolve => { import('components/Index').then(module => { resolve(m
 const Home = resolve => { import('components/Home/Home').then(module => { resolve(module) }) }
 const Chat = resolve => { import('components/Chat/Chat').then(module => { resolve(module) }) }
 const Myself = resolve => { import('components/Myself/Myself').then(module => { resolve(module) }) }
+const UserHome = resolve => { import('components/Myself/src/UserHome').then(module => { resolve(module) }) }
 const Travels = resolve => { import('components/Travels/Travels').then(module => { resolve(module) }) }
+const TravelsCreate = resolve => { import('components/Travels/src/TravelsCreate').then(module => { resolve(module) }) }
 
 Vue.use(Router)
 
@@ -20,21 +22,29 @@ export default new Router({
         {
           name: 'home',
           path: 'home',
-          component: Home,
+          component: Home
         }, {
           name: 'travels',
           path: 'travels',
-          component: Travels,
+          component: Travels
         }, {
           name: 'chat',
           path: 'chat',
-          component: Chat,
+          component: Chat
         }, {
           name: 'myself',
           path: 'myself',
-          component: Myself,
-        },
-      ],
-    },
-  ],
+          component: Myself
+        }
+      ]
+    }, {
+      name: 'CreateTravels',
+      path: '/travels/create',
+      component: TravelsCreate
+    }, {
+      name: 'UserHome',
+      path: '/user/:id',
+      component: UserHome
+    }
+  ]
 })

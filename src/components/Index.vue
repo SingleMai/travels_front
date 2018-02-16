@@ -1,12 +1,13 @@
 <template>
   <div class="content">
     <router-view class="barHeight"></router-view>
-    <tar-bar></tar-bar>
+    <tar-bar :v-show="getShowBar"></tar-bar>
   </div>
 </template>
 
 <script>
 import TarBar from 'base/TarBar'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Index',
@@ -14,9 +15,14 @@ export default {
     return {
     }
   },
-  components: {
-    TarBar,
+  computed: {
+    ...mapGetters([
+      'getShowBar'
+    ])
   },
+  components: {
+    TarBar
+  }
 }
 </script>
 

@@ -1,22 +1,45 @@
-// import axios from 'axios'
-// import { options } from './config'
+import axios from 'axios'
+import * as Travels from 'api/src/travels'
 
-// const getAdmin = () => {
-//   const url = '/admin'
-//   return axios.get(url, Object.assign({}, options, { }))
-// }
+export const TravelsApi = Travels
 
-// const deleteAdmin = (id) => {
-//   const url = `/admin/${id}`
-//   return axios.delete(url, Object.assign({}, options, { }))
-// }
+// 拦截响应response，并做一些错误处理
+axios.interceptors.response.use((response) => {
+  const data = response.data
 
-// const updateAdmin = (id, data) => {
-//   const url = `/admin/${id}`
-//   return axios.put(url, data, Object.assign({}, options, { }))
-// }
+  // 根据返回的code值来做不同的处理（和后端约定）
+  switch (data.code) {
+    case 1:
+      // 这一步保证数据返回，如果没有return则会走接下来的代码，不是未登录就是报错
+      return data.data
 
-// const createAdmin = (data) => {
-//   const url = `/admin`
-//   return axios.post(url, data, Object.assign({}, options, { }))
-// }
+    default:
+  }
+  // 若不是正确的返回code，就抛出错误
+  const err = new Error(data.message)
+
+  err.data = data
+  err.response = response
+
+  throw err
+}, (err) => { // 这里是返回状态码不为200时候的错误处理
+  const result = {}
+  if (err && err.response) {
+    switch (err.response.data.code) {
+      case -1:
+        result.message = '参数为空或者非法'
+        break
+
+      case -2:
+        result.message = '新增内容已存在'
+        break
+
+      case -4000:
+        result.message = '后台服务出错'
+        break
+
+      default: result.message = 'Interval Server Error'
+    }
+  }
+  return Promise.reject(result)
+})

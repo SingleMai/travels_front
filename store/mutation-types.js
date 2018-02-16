@@ -1,5 +1,0 @@
-export const SET_CATEGORY = 'SET_CATEGORY'
-
-export const SET_OFFICE = 'SET_OFFICE'
-
-export const SET_HAS_RELATION = 'SET_HAS_RELATION'

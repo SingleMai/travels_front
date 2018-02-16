@@ -16,18 +16,18 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     subTitle: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   methods: {
     getMore () {
       console.log('更多按钮被点击')
-    },
-  },
+    }
+  }
 }
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->

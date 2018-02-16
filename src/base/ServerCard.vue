@@ -23,8 +23,8 @@ export default {
     return {}
   },
   components: {
-    ValidateBar,
-  },
+    ValidateBar
+  }
 }
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
