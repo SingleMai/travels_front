@@ -2,18 +2,16 @@
   <div class="content">
     <div class="user-card-block">
       <div class="block-left">
-        <div class="head-img"></div>
+        <div class="head-img">
+          <img :src="data.head" alt="">
+        </div>
         <div class="user-info">
-          <p class="name">嘻嘻啊</p>
-          <validate-bar></validate-bar>
+          <p class="name">{{ data.name }}</p>
+          <validate-bar :data="data"></validate-bar>
         </div>
       </div>
     </div>
-    <p class="instru">
-      兄弟，我是北京本地人，凭着对北京的热爱和熟悉，愿意跟您分享我眼中的这座城市。不光是给您领路和讲解，还
-      兄弟，我是北京本地人，凭着对北京的热爱和熟悉，愿意跟您分享我眼中的这座城市。不光是给您领路和讲解，还
-      兄弟，我是北京本地人，凭着对北京的热爱和熟悉，愿意跟您分享我眼中的这座城市。不光是给您领路和讲解，还
-    </p>
+    <p class="instru">{{ data.instroduction }}</p>
   </div>
 </template>
 <script>
@@ -22,6 +20,11 @@ export default {
   name: '',
   data () {
     return {}
+  },
+  props: {
+    data: {
+      type: String
+    }
   },
   components: {
     ValidateBar
@@ -40,7 +43,7 @@ $grey-text: #919191;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: $cardHeight;
+    // height: $cardHeight; ;
     margin-bottom: 10px;
     .block-left {
       display: flex;
@@ -48,6 +51,7 @@ $grey-text: #919191;
       .head-img {
         width: $cardHeight;
         height: $cardHeight;
+        flex: 0 0 $cardHeight;
         border-radius: 50%;
         background: pink;
         overflow: hidden;

@@ -2,10 +2,12 @@ import axios from 'axios'
 import * as Travels from 'api/src/travels'
 import * as Users from 'api/src/users'
 import * as Carousel from 'api/src/carousel'
+import * as Servies from 'api/src/servies'
 
 export const TravelsApi = Travels
 export const UsersApi = Users
 export const CarouselApi = Carousel
+export const ServiesApi = Servies
 
 // 拦截响应response，并做一些错误处理
 axios.interceptors.response.use((response) => {
