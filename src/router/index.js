@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // 异步加载组件
+const Login = resolve => { import('components/Login').then(module => { resolve(module) }) }
 const Index = resolve => { import('components/Index').then(module => { resolve(module) }) }
 const Home = resolve => { import('components/Home/Home').then(module => { resolve(module) }) }
 const MSearch = resolve => { import('components/Home/src/MSearch').then(module => { resolve(module) }) }
@@ -20,6 +21,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
     {
       path: '/',
       name: 'Index',

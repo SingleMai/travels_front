@@ -18,7 +18,7 @@
       </div>
       <p class="info-right price">￥{{ data.price }}</p>
     </div>
-    <user-card :data="data.user"></user-card>
+    <user-card @click.native="routeTo" :data="data.user"></user-card>
     <mt-navbar v-model="selected">
       <mt-tab-item id="1">玩法</mt-tab-item>
       <mt-tab-item id="2">评价</mt-tab-item>
@@ -60,6 +60,9 @@ export default {
   methods: {
     back () {
       this.$router.go(-1)
+    },
+    routeTo () {
+      this.$router.push(`/user/${this.data.user.id}`)
     },
     async $_getServiesById () {
       const data = await ServiesApi.getServiesById({ id: this.id })

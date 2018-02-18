@@ -1,16 +1,18 @@
 <template>
   <div class="user-card-block" @click.stop="router2">
     <div class="block-left">
-      <div class="head-img"></div>
+      <div class="head-img">
+        <img :src="data.head" alt="">
+      </div>
       <div class="user-info">
-        <p class="name">嘻嘻啊</p>
+        <p class="name">{{ data.name }}</p>
         <ul class="label-list">
-          <li class="label-item">
+          <!-- <li class="label-item">
             技术宅
           </li>
           <li class="label-item">
             精通html/css/js
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -25,11 +27,6 @@ export default {
   data () {
     return {}
   },
-  props: {
-    data: {
-      type: Object
-    }
-  },
   methods: {
     router2 () {
       this.$router.push(this.to)
@@ -38,6 +35,9 @@ export default {
   props: {
     to: {
       type: String
+    },
+    data: {
+      type: Object
     }
   }
 }
@@ -61,6 +61,7 @@ $grey-text: #919191;
       height: $cardHeight;
       border-radius: 50%;
       background: pink;
+      overflow: hidden;
     }
     .user-info {
       display: flex;

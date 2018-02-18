@@ -2,7 +2,11 @@
   <div>
     <mt-header title="我" class="m-header">
     </mt-header>
-    <user-card class="card-margin" to="/user/1"></user-card>
+    <user-card v-if="userData" class="card-margin" :data="userData" :to="`/user/${userData.id}`"></user-card>
+    <div v-else class="login-card">
+      <h2 class="login-title">欢迎来到TravelS!</h2>
+      <p class="btn-login" @click="route2('/login')">马上登录</p>
+    </div>
     <mt-cell title="我的小店"
              icon="more"
              value="带 icon"
@@ -69,7 +73,14 @@ import UserCard from 'components/Myself/src/UserCard'
 export default {
   name: '',
   data () {
-    return {}
+    return {
+      userData: JSON.parse(window.localStorage.getItem('user'))
+    }
+  },
+  methods: {
+    route2 (path) {
+      this.$router.push(path)
+    }
   },
   components: {
     UserCard
@@ -80,5 +91,24 @@ export default {
 <style lang='scss' scoped='' type='text/css'>
 .card-margin {
   margin: 50px 0;
+}
+.login-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px;
+  background: white;
+  margin-bottom: 40px;
+  .login-title {
+    font-size: 80px;
+    font-weight: bold;
+  }
+  .btn-login {
+    display: inline-block;
+    margin: 60px 0 0;
+    padding: 20px 60px;
+    background: orange;
+    color: white;
+    font-size: 30px;
+  }
 }
 </style>

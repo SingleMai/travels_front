@@ -3,11 +3,26 @@ import * as Travels from 'api/src/travels'
 import * as Users from 'api/src/users'
 import * as Carousel from 'api/src/carousel'
 import * as Servies from 'api/src/servies'
+import * as Orders from 'api/src/orders'
 
 export const TravelsApi = Travels
 export const UsersApi = Users
 export const CarouselApi = Carousel
 export const ServiesApi = Servies
+export const OrdersApi = Orders
+
+axios.interceptors.request.use(
+  config => {
+    const token = window.localStorage.getItem('token')
+    if (token) { // 判断是否存在token，如果存在的话，则每个http header都加上token
+      config.headers.Authorization = `token ${token}`
+    }
+    return config
+  },
+  err => {
+    return Promise.reject(err)
+  }
+)
 
 // 拦截响应response，并做一些错误处理
 axios.interceptors.response.use((response) => {
@@ -40,7 +55,19 @@ axios.interceptors.response.use((response) => {
         result.message = '新增内容已存在'
         break
 
-      case -4000:
+      case -7:
+        result.message = '邮箱未注册'
+        break
+
+      case -8:
+        result.message = '验证码错误'
+        break
+
+      case -9:
+        result.message = '身份验证错误，请重新登录'
+        break
+
+      case -5000:
         result.message = '后台服务出错'
         break
 
