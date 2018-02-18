@@ -65,6 +65,8 @@ axios.interceptors.response.use((response) => {
 
       case -9:
         result.message = '身份验证错误，请重新登录'
+        window.localStorage.removeItem('token')
+        window.localStorage.removeItem('user')
         break
 
       case -5000:

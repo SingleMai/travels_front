@@ -12,6 +12,7 @@
 </template>
 <script>
 import { TravelsApi } from 'api'
+import { Toast } from 'mint-ui'
 import MUploadFile from 'components/base/MUploadFile'
 
 export default {
@@ -32,7 +33,16 @@ export default {
       for (const file of this.files) {
         formData.append('travelImg', file)
       }
-      await TravelsApi.createTravels(formData)
+      try {
+        await TravelsApi.createTravels(formData)
+        this.$router.go(-1)
+      } catch (err) {
+        Toast({
+          message: `创建失败: ${err.message}`,
+          position: 'middle',
+          duration: 3000
+        })
+      }
     }
   },
   components: {

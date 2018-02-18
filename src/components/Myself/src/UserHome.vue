@@ -20,7 +20,7 @@
     </mt-navbar>
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="shop">
-        <p>111</p>
+        <p></p>
       </mt-tab-container-item>
       <mt-tab-container-item id="instru">
         <p class="instru-content" v-html="data.instroduction"></p>
