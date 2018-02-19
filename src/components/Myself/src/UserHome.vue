@@ -9,7 +9,8 @@
         <p class="name">{{ data.name }}</p>
         <p class="info">{{ data.job }}/{{ data.city }}</p>
         <div class="btn-box">
-          <p class="btn-edit" @click="routeToEdit">编辑资料</p>
+          <p class="btn-edit" @click="routeToEdit" v-if="myId === id">编辑资料</p>
+          <p class="btn-likes" v-else @click="addFriend">关注</p>
         </div>
       </div>
     </div>
@@ -32,7 +33,7 @@
   </div>
 </template>
 <script>
-import { UsersApi } from 'api'
+import { UsersApi, ChatApi } from 'api'
 import TravelsItem from 'components/Travels/src/TravelsItem'
 import { mapMutations, mapGetters } from 'vuex'
 import UserHomeImg from 'img/userHome.jpg'
@@ -43,6 +44,7 @@ export default {
   },
   data () {
     return {
+      myId: JSON.parse(window.localStorage.getItem('user')).id,
       id: parseInt(this.$route.params.id),
       userHomeImg: UserHomeImg,
       selected: '',
@@ -57,6 +59,12 @@ export default {
     },
     routeToEdit () {
       this.$router.push(`/user/${this.id}/edit`)
+    },
+    async addFriend () {
+      const data = await ChatApi.addFriend({
+        friendId: this.id
+      })
+      console.log(data)
     },
     async $_getUsersInfo () {
       if (this.getMyInfo) {
@@ -126,7 +134,7 @@ export default {
       font-size: 20px;
     }
     .btn-box {
-      .btn-edit {
+      .btn-edit, .btn-likes {
         border: 1px solid $color-neutral-border;
         font-size: 14px;
         padding: 10px 5px;

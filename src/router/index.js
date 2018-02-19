@@ -6,6 +6,7 @@ const Index = resolve => { import('components/Index').then(module => { resolve(m
 const Home = resolve => { import('components/Home/Home').then(module => { resolve(module) }) }
 const MSearch = resolve => { import('components/Home/src/MSearch').then(module => { resolve(module) }) }
 const Chat = resolve => { import('components/Chat/Chat').then(module => { resolve(module) }) }
+const Chating = resolve => { import('components/Chat/src/Chating').then(module => { resolve(module) }) }
 const Myself = resolve => { import('components/Myself/Myself').then(module => { resolve(module) }) }
 const UserHome = resolve => { import('components/Myself/src/UserHome').then(module => { resolve(module) }) }
 const UserEdit = resolve => { import('components/Myself/src/UserEdit').then(module => { resolve(module) }) }
@@ -86,6 +87,10 @@ export default new Router({
       name: 'UserLikes',
       path: '/user/:id/likes',
       component: UserLikes
+    }, {
+      name: 'Chating',
+      path: '/chat/:id',
+      component: Chating
     }
   ]
 })

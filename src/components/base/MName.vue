@@ -1,5 +1,5 @@
 <template>
-  <span :style="`font-size: ${size};color: ${color}`" @click.stop="routeToPerson">
+  <span :style="`font-size: ${size};color: ${color}`">
     {{ name }}
   </span>
 </template>
@@ -24,9 +24,6 @@ export default {
     }
   },
   methods: {
-    routeToPerson () {
-      console.log('用户名被点击。。。')
-    }
   }
 }
 </script>

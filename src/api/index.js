@@ -4,12 +4,14 @@ import * as Users from 'api/src/users'
 import * as Carousel from 'api/src/carousel'
 import * as Servies from 'api/src/servies'
 import * as Orders from 'api/src/orders'
+import * as Chat from 'api/src/chat'
 
 export const TravelsApi = Travels
 export const UsersApi = Users
 export const CarouselApi = Carousel
 export const ServiesApi = Servies
 export const OrdersApi = Orders
+export const ChatApi = Chat
 
 axios.interceptors.request.use(
   config => {

@@ -2,7 +2,7 @@
   <div class="travels-item">
     <div class="box">
       <div class="head">
-        <div class="head-left">
+        <div class="head-left" @click="route2(`/user/${data.user.id}`)">
           <div class="headImg">
             <img :src="`${data.user.head}`" alt="">
           </div>
@@ -28,7 +28,7 @@
       <div class="other-info" v-if="data.likes.length || data.comments.length">
         <div class="likes-box" v-if="data.likes.length">❤️
           <ul class="likes-list">
-            <li class="likes-item" v-for="(like, one) in data.likes" :key="one">
+            <li class="likes-item" v-for="(like, one) in data.likes" :key="one" @click="route2(`/user/${like.id}`)">
               <m-name :name="like.name" size="14px" color="#2d8cf0"/>
             </li>
           </ul>
@@ -76,6 +76,9 @@ export default {
     }
   },
   methods: {
+    route2 (path) {
+      this.$router.push(path)
+    },
     getDetail () {
       console.log('get detail')
     },
