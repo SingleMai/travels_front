@@ -28,7 +28,7 @@
 import { CarouselApi } from 'api'
 import CarouselV from 'base/CarouselV'
 import SearchBox from 'base/SearchBox'
-import BarSlide from 'base/BarSlide'
+import BarSlide from './src/BarSlide'
 import BlockTitle from 'base/BlockTitle'
 import UserCard from 'base/UserCard'
 import ServerCard from 'base/ServerCard'

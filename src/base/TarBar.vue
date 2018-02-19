@@ -26,10 +26,6 @@ export default {
           text: '旅途',
           src: '/travels'
         }, {
-          img: 'el-icon-plus',
-          text: '添加',
-          src: '/'
-        }, {
           img: 'el-icon-edit',
           text: '留言',
           src: '/chat'
