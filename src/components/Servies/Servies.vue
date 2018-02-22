@@ -29,7 +29,7 @@
     </mt-navbar>
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        <p class="servies-content" v-html="data.content"></p>
+        <div class="servies-content" v-html="data.content"></div>
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         <comment-card v-for="(item, index) in data.comments" :key="index" :data="item"></comment-card>

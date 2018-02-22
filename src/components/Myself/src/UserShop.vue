@@ -23,7 +23,8 @@ export default {
   name: '',
   data () {
     return {
-      userData: JSON.parse(window.localStorage.getItem('user'))
+      userData: JSON.parse(window.localStorage.getItem('user')),
+      id: this.$route.params.id
     }
   },
   methods: {
@@ -31,7 +32,7 @@ export default {
       this.$router.back()
     },
     createServies () {
-
+      this.$router.push(`/user/${this.id}/shop/edit`)
     }
   },
   components: {
