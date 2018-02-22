@@ -84,7 +84,7 @@ const editor1 = new VueHtml5Editor({
       }
     }
   },
-  visibleModules: ['text', 'color', 'font', 'align', 'list', 'link', 'tabulation', 'image', 'hr', 'eraser', 'undo']  
+  visibleModules: ['text', 'color', 'font', 'align', 'list', 'link', 'tabulation', 'image', 'hr', 'eraser', 'undo']
 })
 
 export default {

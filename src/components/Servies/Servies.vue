@@ -1,40 +1,42 @@
 <template>
   <div>
-    <div :style="`background: url(${data.headImg}) center;`" class="head-box">
-      <span class="btn-back" @click="back()">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-back"></use>
-        </svg>
-      </span>
-    </div>
-    <div class="info">
-      <div class="info-left">
-        <p class="title">{{ data.title }}</p>
-        <validate-bar></validate-bar>
-        <p class="likes">
-          <i class="el-icon-view"></i>
-          出行： 0
-        </p>
-        <p class="views">
-          <i class="el-icon-view"></i>
-          {{ data.views }}人浏览过
-        </p>
+    <div class="content">
+      <div :style="`background: url(${data.headImg}) center;`" class="head-box">
+        <span class="btn-back" @click="back()">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-back"></use>
+          </svg>
+        </span>
       </div>
-      <p class="info-right price">￥{{ data.price }}</p>
+      <div class="info">
+        <div class="info-left">
+          <p class="title">{{ data.title }}</p>
+          <validate-bar></validate-bar>
+          <p class="likes">
+            <i class="el-icon-view"></i>
+            出行： 0
+          </p>
+          <p class="views">
+            <i class="el-icon-view"></i>
+            {{ data.views }}人浏览过
+          </p>
+        </div>
+        <p class="info-right price">￥{{ data.price }}</p>
+      </div>
+      <user-card @click.native="routeTo" :data="data.user"></user-card>
+      <mt-navbar v-model="selected">
+        <mt-tab-item id="1">玩法</mt-tab-item>
+        <mt-tab-item id="2">评价</mt-tab-item>
+      </mt-navbar>
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="1">
+          <div class="servies-content" v-html="data.content"></div>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="2">
+          <comment-card v-for="(item, index) in data.comments" :key="index" :data="item"></comment-card>
+        </mt-tab-container-item>
+      </mt-tab-container>
     </div>
-    <user-card @click.native="routeTo" :data="data.user"></user-card>
-    <mt-navbar v-model="selected">
-      <mt-tab-item id="1">玩法</mt-tab-item>
-      <mt-tab-item id="2">评价</mt-tab-item>
-    </mt-navbar>
-    <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        <div class="servies-content" v-html="data.content"></div>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        <comment-card v-for="(item, index) in data.comments" :key="index" :data="item"></comment-card>
-      </mt-tab-container-item>
-    </mt-tab-container>
     <div class="bottom-box">
       <p class="btn-chat">聊天</p>
       <p class="btn-phone">电话</p>
@@ -82,45 +84,48 @@ export default {
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang='scss' scoped='' type='text/css'>
 @import "src/common/sass/variable.sass";
-.servies-content {
-  padding: 20px;
-  line-height: 60px;
-  font-size: 22px;
-  color: $grey-text;
-}
-.head-box {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  background-size: cover!important;
-  .btn-back {
-    position: absolute;
-    left: 30px;
-    top: 20px;
-    font-size: 100px;
-    color: $color-neutral-disabled;
+.content {
+  margin-bottom: 200px;
+  .servies-content {
+    padding: 20px;
+    line-height: 60px;
+    font-size: 22px;
+    color: $grey-text;
   }
-}
-.info {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px 60px;
-  background: white;
-  .info-left {
-    .title {
-      margin: 20px 0;
-      font-size: 70px;
-    }
-    .views, .likes {
-      margin: 20px 0;
-      color: $grey-text;
-      font-size: 40px;
+  .head-box {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-size: cover!important;
+    .btn-back {
+      position: absolute;
+      left: 30px;
+      top: 20px;
+      font-size: 100px;
+      color: $color-neutral-disabled;
     }
   }
-  .info-right.price {
-    font-size: 60px;
+  .info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+    background: white;
+    .info-left {
+      .title {
+        margin: 20px 0;
+        font-size: 70px;
+      }
+      .views, .likes {
+        margin: 20px 0;
+        color: $grey-text;
+        font-size: 40px;
+      }
+    }
+    .info-right.price {
+      font-size: 60px;
+    }
   }
 }
 .bottom-box {
