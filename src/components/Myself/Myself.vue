@@ -9,10 +9,11 @@
     </div>
     <mt-cell title="我的小店"
              icon="more"
-             value="带 icon"
              :is-link="true"
-             to="www.baidu.com">
-             <!-- slot=icon 自定义图片内容 -->
+             to="/user/1/shop">
+      <svg class="icon" slot="icon" aria-hidden="true">
+        <use xlink:href="#icon-wxbmingxingdianpu"></use>
+      </svg>
     </mt-cell>
     <div class="card-margin">
       <mt-cell title="我购买的"
@@ -21,6 +22,9 @@
               :is-link="true"
               to="/user/1/buy">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-publishgoods_fill"></use>
+        </svg>
       </mt-cell>
       <mt-cell title="我出售的"
               icon="more"
@@ -28,6 +32,9 @@
               :is-link="true"
               to="/user/1/sell">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-service"></use>
+        </svg>
       </mt-cell>
     </div>
     <div class="card-margin">
@@ -37,6 +44,9 @@
               :is-link="true"
               to="www.baidu.com">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-redpacket"></use>
+        </svg>
       </mt-cell>
     </div>
     <div class="card-margin">
@@ -46,6 +56,9 @@
               :is-link="true"
               to="/user/1/travels">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-touchengkongyun"></use>
+        </svg>
       </mt-cell>
     </div>
     <div class="card-margin">
@@ -55,6 +68,9 @@
               :is-link="true"
               to="/user/1/likes">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-iconfontxingxing"></use>
+        </svg>
       </mt-cell>
     </div>
     <div class="card-margin">
@@ -64,6 +80,9 @@
               :is-link="true"
               to="www.baidu.com">
               <!-- slot=icon 自定义图片内容 -->
+        <svg class="icon" slot="icon" aria-hidden="true">
+          <use xlink:href="#icon-shezhi"></use>
+        </svg>
       </mt-cell>
     </div>
   </div>

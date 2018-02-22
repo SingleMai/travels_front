@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import Mint from 'mint-ui'
 import store from './store' // 引入store
+import 'js/aliFont.js' // 阿里图标
 import 'mint-ui/lib/style.css'
 // 引入通用样式文件
 import 'sass/index.sass'

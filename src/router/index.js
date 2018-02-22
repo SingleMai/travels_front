@@ -10,6 +10,8 @@ const Chating = resolve => { import('components/Chat/src/Chating').then(module =
 const Myself = resolve => { import('components/Myself/Myself').then(module => { resolve(module) }) }
 const UserHome = resolve => { import('components/Myself/src/UserHome').then(module => { resolve(module) }) }
 const UserEdit = resolve => { import('components/Myself/src/UserEdit').then(module => { resolve(module) }) }
+const UserShop = resolve => { import('components/Myself/src/UserShop').then(module => { resolve(module) }) }
+const UserShopEdit = resolve => { import('components/Myself/src/UserShopEdit').then(module => { resolve(module) }) }
 const UserBuy = resolve => { import('components/Myself/src/UserBuy').then(module => { resolve(module) }) }
 const UserSell = resolve => { import('components/Myself/src/UserSell').then(module => { resolve(module) }) }
 const UserTravels = resolve => { import('components/Myself/src/UserTravels').then(module => { resolve(module) }) }
@@ -87,6 +89,14 @@ export default new Router({
       name: 'UserLikes',
       path: '/user/:id/likes',
       component: UserLikes
+    }, {
+      name: 'UserShop',
+      path: '/user/:id/shop',
+      component: UserShop
+    }, {
+      name: 'UserShopEdit',
+      path: '/user/:id/shop/edit',
+      component: UserShopEdit
     }, {
       name: 'Chating',
       path: '/chat/:id',
