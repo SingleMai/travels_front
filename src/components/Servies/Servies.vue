@@ -11,7 +11,6 @@
       <div class="info">
         <div class="info-left">
           <p class="title">{{ data.title }}</p>
-          <validate-bar></validate-bar>
           <p class="likes">
             <i class="el-icon-view"></i>
             出行： 0
@@ -23,7 +22,7 @@
         </div>
         <p class="info-right price">￥{{ data.price }}</p>
       </div>
-      <user-card @click.native="routeTo" :data="data.user"></user-card>
+      <user-card @click.native="route2(`/user/${data.user.id}`)" :data="data.user"></user-card>
       <mt-navbar v-model="selected">
         <mt-tab-item id="1">玩法</mt-tab-item>
         <mt-tab-item id="2">评价</mt-tab-item>
@@ -40,7 +39,7 @@
     <div class="bottom-box">
       <p class="btn-chat">聊天</p>
       <p class="btn-phone">电话</p>
-      <p class="btn-book">预定</p>
+      <p class="btn-book" @click="route2Book">预定</p>
     </div>
   </div>
 </template>
@@ -67,8 +66,19 @@ export default {
     back () {
       this.$router.go(-1)
     },
-    routeTo () {
-      this.$router.push(`/user/${this.data.user.id}`)
+    route2 (path) {
+      this.$router.push(path)
+    },
+    route2Book () {
+      this.$router.push({
+        name: 'ServiesBook',
+        params: {
+          id: this.id
+        },
+        query: {
+          ...this.data
+        }
+      })
     },
     async $_getServiesById () {
       const data = await ServiesApi.getServiesById({ id: this.id })

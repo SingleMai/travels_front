@@ -19,6 +19,7 @@ const UserLikes = resolve => { import('components/Myself/src/UserLikes').then(mo
 const Travels = resolve => { import('components/Travels/Travels').then(module => { resolve(module) }) }
 const TravelsCreate = resolve => { import('components/Travels/src/TravelsCreate').then(module => { resolve(module) }) }
 const Servies = resolve => { import('components/Servies/Servies').then(module => { resolve(module) }) }
+const ServiesBook = resolve => { import('components/Servies/src/ServiesBook').then(module => { resolve(module) }) }
 
 Vue.use(Router)
 
@@ -61,6 +62,10 @@ export default new Router({
       name: 'Servies',
       path: '/servies/:id',
       component: Servies
+    }, {
+      name: 'ServiesBook',
+      path: '/servies/:id/book',
+      component: ServiesBook
     }, {
       name: 'CreateTravels',
       path: '/travels/create',
