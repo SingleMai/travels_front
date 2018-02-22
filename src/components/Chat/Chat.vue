@@ -35,7 +35,7 @@ export default {
       this.$router.push({
         name: 'Chating',
         params: {
-          id: item.id,
+          id: item.id
         },
         query: {
           name: item.name,

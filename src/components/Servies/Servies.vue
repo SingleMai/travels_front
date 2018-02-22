@@ -1,7 +1,11 @@
 <template>
   <div>
     <div :style="`background: url(${data.headImg}) center;`" class="head-box">
-      <span class="btn-back" @click="back()"><</span>
+      <span class="btn-back" @click="back()">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-back"></use>
+        </svg>
+      </span>
     </div>
     <div class="info">
       <div class="info-left">

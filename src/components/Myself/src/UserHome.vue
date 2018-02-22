@@ -1,7 +1,11 @@
 <template>
   <div>
     <div :style="`background: url(${userHomeImg}) center;background-size: 100% 100%;`" class="head-box">
-      <span class="btn-back" @click="back()"><</span>
+      <span class="btn-back" @click="back()">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-back"></use>
+        </svg>
+      </span>
       <div class="user-info">
         <div class="avator">
           <img :src="data.head" alt="">

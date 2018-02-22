@@ -32,7 +32,7 @@ export default {
     formateTime (oriDate) {
       const _date = new Date(oriDate)
       const date = `${_date.getFullYear()}-${_date.getMonth() + 1}-${_date.getDate()}`
-      const time = `${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`
+      // const time = `${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`
       return date
     }
   }

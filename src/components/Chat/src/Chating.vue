@@ -45,17 +45,17 @@ export default {
       this.$router.go(-1)
     },
     async sendMsg () {
-      const data = await ChatApi.createMsg({
+      await ChatApi.createMsg({
         friendId: parseInt(this.id),
         message: this.message
-      });
-      this.message = '';
+      })
+      this.message = ''
     },
     async $_getOneMsg () {
       const data = await ChatApi.getOneChatByOne({
         friendId: this.id
       })
-      this.data = data;
+      this.data = data
     }
   },
   beforeDestroy () {
