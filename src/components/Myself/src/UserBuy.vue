@@ -10,11 +10,29 @@
       <mt-tab-item id="4">售后</mt-tab-item>
       <mt-tab-item id="5">已失效</mt-tab-item>
     </mt-navbar>
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="1">
+        
+      </mt-tab-container-item>
+      <mt-tab-container-item id="2">
+      </mt-tab-container-item>
+      <mt-tab-container-item id="3">
+      </mt-tab-container-item>
+      <mt-tab-container-item id="4">
+      </mt-tab-container-item>
+      <mt-tab-container-item id="5">
+      </mt-tab-container-item>
+    </mt-tab-container>
   </div>
 </template>
 <script>
+import { OrdersApi } from 'api'
+
 export default {
   name: '',
+  mounted () {
+    this.$_getOrdersBook()
+  },
   data () {
     return {
       selected: '1'
@@ -23,6 +41,10 @@ export default {
   methods: {
     back () {
       this.$router.back()
+    },
+    async $_getOrdersBook() {
+      const data = await OrdersApi.getOrdersBook()
+      console.log(data)
     }
   }
 }
