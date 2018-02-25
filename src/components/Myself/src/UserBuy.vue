@@ -12,7 +12,7 @@
     </mt-navbar>
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        
+        <servies-card v-for="(data, index) in bookData" :key="index" :data="data"></servies-card>
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
       </mt-tab-container-item>
@@ -27,6 +27,7 @@
 </template>
 <script>
 import { OrdersApi } from 'api'
+import ServiesCard from './ServiesCard'
 
 export default {
   name: '',
@@ -35,17 +36,21 @@ export default {
   },
   data () {
     return {
-      selected: '1'
+      selected: '1',
+      bookData: []
     }
   },
   methods: {
     back () {
       this.$router.back()
     },
-    async $_getOrdersBook() {
+    async $_getOrdersBook () {
       const data = await OrdersApi.getOrdersBook()
-      console.log(data)
+      this.bookData = data
     }
+  },
+  components: {
+    ServiesCard
   }
 }
 </script>

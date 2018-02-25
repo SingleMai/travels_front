@@ -38,7 +38,7 @@ $cardWidth: 250px;
     width: $cardWidth;
     height: $cardWidth;
     flex-basis: $cardWidth;
-    background: pink;     
+    background: pink;
   }
   .info {
     position: relative;
@@ -48,7 +48,6 @@ $cardWidth: 250px;
     .title, .time, .price {
       max-width: 900px;
       margin: 30px 0;
-      
     }
     .title {
       white-space: nowrap;
