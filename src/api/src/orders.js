@@ -10,3 +10,8 @@ export const createOrders = data => {
   const url = '/orders'
   return axios.post(url, data, Object.assign({}, options))
 }
+
+export const cancelOrders = data => {
+  const url = '/orders/cancel'
+  return axios.put(url, data, Object.assign({}, options))
+}

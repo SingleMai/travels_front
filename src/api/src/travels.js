@@ -6,6 +6,11 @@ export const getTravels = data => {
   return axios.get(url, Object.assign({}, options, { params: data }))
 }
 
+export const getTravelsByUser = data => {
+  const url = '/travel/user'
+  return axios.get(url, Object.assign({}, options, { params: data }))
+}
+
 export const createTravels = (data) => {
   const url = '/travels'
   return axios.post(url, data, Object.assign({}, options))
