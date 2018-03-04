@@ -12,9 +12,18 @@
     </mt-navbar>
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
-        <servies-buy-card v-for="(data, index) in bookData" :key="index" :data="data" :index="index" @spliceItem="spliceBuyCard"></servies-buy-card>
+        <servies-buy-card v-for="(data, index) in bookData"
+                          :key="index"
+                          :data="data"
+                          :index="index"
+                          @spliceItem="spliceBuyCard"></servies-buy-card>
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
+        <servies-unaccept-card v-for="(data, index) in unacceptData"
+                               :key="index"
+                               :data="data"
+                               @spliceItem="spliceUnacceptCard"
+                               :index="index"/>
       </mt-tab-container-item>
       <mt-tab-container-item id="3">
       </mt-tab-container-item>
@@ -28,16 +37,19 @@
 <script>
 import { OrdersApi } from 'api'
 import ServiesBuyCard from './ServiesBuyCard'
+import ServiesUnacceptCard from './ServiesUnacceptCard'
 
 export default {
   name: '',
   mounted () {
     this.$_getOrdersBook()
+    this.$_getOrdersUnaccept()
   },
   data () {
     return {
       selected: '1',
-      bookData: []
+      bookData: [],
+      unacceptData: []
     }
   },
   methods: {
@@ -47,13 +59,21 @@ export default {
     spliceBuyCard (index) {
       this.bookData.splice(index, 1)
     },
+    spliceUnacceptCard (index) {
+      this.unacceptData.splice(index, 1)
+    },
     async $_getOrdersBook () {
       const data = await OrdersApi.getOrdersBook()
       this.bookData = data
+    },
+    async $_getOrdersUnaccept () {
+      const data = await OrdersApi.getOrdersUnaccept()
+      this.unacceptData = data
     }
   },
   components: {
-    ServiesBuyCard
+    ServiesBuyCard,
+    ServiesUnacceptCard
   }
 }
 </script>

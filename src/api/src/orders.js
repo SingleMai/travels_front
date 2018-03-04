@@ -6,6 +6,11 @@ export const getOrdersBook = () => {
   return axios.get(url, Object.assign({}, options))
 }
 
+export const getOrdersUnaccept = () => {
+  const url = '/user/orders/unaccept'
+  return axios.get(url, Object.assign({}, options))
+}
+
 export const createOrders = data => {
   const url = '/orders'
   return axios.post(url, data, Object.assign({}, options))
