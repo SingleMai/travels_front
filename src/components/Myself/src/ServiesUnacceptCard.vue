@@ -20,7 +20,7 @@
 </template>
 <script>
 import { OrdersApi } from 'api'
-import { MessageBox } from 'mint-ui';
+import { MessageBox } from 'mint-ui'
 
 const ORDER_STATUS = {
   '-1': '已失效',
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     async cancelOrders () {
-      await MessageBox.confirm('是否确定取消订单', '提示');
+      await MessageBox.confirm('是否确定取消订单', '提示')
       try {
         await OrdersApi.cancelOrders({ id: this.data.orderId })
         this.$emit('spliceItem', this.index)
@@ -70,7 +70,7 @@ export default {
 @import "src/common/sass/variable.sass";
 $cardWidth: 250px;
 .main {
-  background: white;  
+  background: white;
   box-sizing: border-box;
   padding: 40px 40px 20px;
   margin: 40px 0;

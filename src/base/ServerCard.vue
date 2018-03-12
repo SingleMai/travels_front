@@ -1,17 +1,21 @@
 <template>
   <div class="server-card-block">
-    <div class="img"></div>
+    <div class="img">
+      <img :src="data.headImg" alt="">
+    </div>
     <div class="info">
       <div class="info-left">
-        <p class="title">Javascript 从入门到放弃</p>
+        <p class="title">{{ data.title }}</p>
         <validate-bar></validate-bar>
         <p class="views">
           <i class="el-icon-view"></i>
-          66666人浏览过
+          {{ data.views }}人浏览过
         </p>
       </div>
-      <p class="info-right price">￥ 1999.00</p>
-      <div class="avator"></div>
+      <p class="info-right price">￥ {{ data.price }}</p>
+      <div class="avator">
+        <img :src="data.user.head" alt="">
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +25,11 @@ export default {
   name: '',
   data () {
     return {}
+  },
+  props: {
+    data: {
+      type: Object
+    }
   },
   components: {
     ValidateBar
@@ -59,12 +68,12 @@ $grey-text: #919191;
     }
     .avator{
       position: absolute;
-      top: -50%;
+      top: -65%;
       right: 40px;
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      background: orange;
+      overflow: hidden;
       border: 1px solid $grey-text;
     }
   }

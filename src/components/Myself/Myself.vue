@@ -18,7 +18,6 @@
     <div class="card-margin">
       <mt-cell title="我购买的"
               icon="more"
-              value="带 icon"
               :is-link="true"
               to="/user/1/buy">
               <!-- slot=icon 自定义图片内容 -->
@@ -28,7 +27,6 @@
       </mt-cell>
       <mt-cell title="我出售的"
               icon="more"
-              value="带 icon"
               :is-link="true"
               to="/user/1/sell">
               <!-- slot=icon 自定义图片内容 -->
@@ -40,9 +38,8 @@
     <div class="card-margin">
       <mt-cell title="我的钱包"
               icon="more"
-              value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-redpacket"></use>
@@ -52,7 +49,6 @@
     <div class="card-margin">
       <mt-cell title="我的旅途"
               icon="more"
-              value="带 icon"
               :is-link="true"
               to="/user/1/travels">
               <!-- slot=icon 自定义图片内容 -->
@@ -64,7 +60,6 @@
     <div class="card-margin">
       <mt-cell title="我的收藏"
               icon="more"
-              value="带 icon"
               :is-link="true"
               to="/user/1/likes">
               <!-- slot=icon 自定义图片内容 -->
@@ -76,9 +71,8 @@
     <div class="card-margin">
       <mt-cell title="设置"
               icon="more"
-              value="带 icon"
               :is-link="true"
-              to="www.baidu.com">
+              to="">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-shezhi"></use>

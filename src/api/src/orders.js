@@ -16,6 +16,12 @@ export const createOrders = data => {
   return axios.post(url, data, Object.assign({}, options))
 }
 
+export const payOrders = data => {
+  const url = 'orders/pay'
+  data.id = parseInt(data.id)
+  return axios.put(url, data, Object.assign({}, options))
+}
+
 export const cancelOrders = data => {
   const url = '/orders/cancel'
   return axios.put(url, data, Object.assign({}, options))

@@ -37,11 +37,21 @@ export default {
   },
   methods: {
     async serviesBook () {
-      await OrdersApi.createOrders({
+      const data = await OrdersApi.createOrders({
         serviesId: parseInt(this.id),
         num: this.num,
         travelTime: this.travelTime,
         count: this.count
+      })
+      this.$router.push({
+        name: 'ServiesPay',
+        params: {
+          id: data.id
+        },
+        query: {
+          order: JSON.stringify(data),
+          server: JSON.stringify(this.data)
+        }
       })
     }
   },

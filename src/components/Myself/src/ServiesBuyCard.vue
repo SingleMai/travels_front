@@ -14,13 +14,13 @@
     </div>
     <div class="btn-box">
       <p class="btn-cancel" @click="cancelOrders">取消订单</p>
-      <p class="btn-pay">支付</p>
+      <p class="btn-pay" @click="payOrders">支付</p>
     </div>
   </div>
 </template>
 <script>
 import { OrdersApi } from 'api'
-import { MessageBox } from 'mint-ui';
+import { MessageBox } from 'mint-ui'
 
 const ORDER_STATUS = {
   '-1': '已失效',
@@ -53,8 +53,20 @@ export default {
     }
   },
   methods: {
+    payOrders () {
+      this.$router.push({
+        name: 'ServiesPay',
+        params: {
+          id: this.data.orderId
+        },
+        query: {
+          order: JSON.stringify(this.data),
+          server: JSON.stringify(this.data)
+        }
+      })
+    },
     async cancelOrders () {
-      await MessageBox.confirm('是否确定取消订单', '提示');
+      await MessageBox.confirm('是否确定取消订单', '提示')
       try {
         await OrdersApi.cancelOrders({ id: this.data.orderId })
         this.$emit('spliceItem', this.index)
@@ -70,7 +82,7 @@ export default {
 @import "src/common/sass/variable.sass";
 $cardWidth: 250px;
 .main {
-  background: white;  
+  background: white;
   box-sizing: border-box;
   padding: 40px 40px 20px;
   margin: 40px 0;

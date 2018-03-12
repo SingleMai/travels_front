@@ -1,6 +1,11 @@
 import axios from 'axios'
 import { options } from './config'
 
+export const getServies = data => {
+  const url = 'servies'
+  return axios.get(url, Object.assign({}, options, { params: data }))
+}
+
 export const getServiesById = data => {
   const url = '/servie'
   return axios.get(url, Object.assign({}, options, { params: data }))

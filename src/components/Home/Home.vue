@@ -16,16 +16,20 @@
     </div>
     <div class="playing-recommend">
       <block-title title="玩法推荐" subTitle="精选推荐好玩的景区、去处"></block-title>
-      <user-card v-for="item in 2" :key="item"></user-card>
+      <user-card v-for="(item, key) in users" :data="item" :key="key"></user-card>
     </div>
     <div class="playing-recommend">
       <block-title title="人气推荐" subTitle="用心推荐、优质体验"></block-title>
-      <server-card @click.native.stop="route2('/servies/1')"></server-card>
+      <server-card v-for="(item, key) in servies"
+                   :key="key"
+                   :data="item"
+                  @click.native.stop="route2(`/servies/${item.id}`)"
+      ></server-card>
     </div>
   </div>
 </template>
 <script>
-import { CarouselApi } from 'api'
+import { CarouselApi, UsersApi, ServiesApi } from 'api'
 import CarouselV from 'base/CarouselV'
 import SearchBox from 'base/SearchBox'
 import BarSlide from './src/BarSlide'
@@ -37,19 +41,37 @@ export default {
   name: '',
   mounted () {
     this.$_getCarousel()
+    this.$_getUsers()
+    this.$_getServies()
   },
   data () {
     return {
-      carousels: []
+      carousels: [],
+      users: [],
+      servies: []
     }
   },
   methods: {
     route2 (url) {
       this.$router.push(url)
     },
+    async $_getServies () {
+      const data = await ServiesApi.getServies({
+        limit: 5,
+        offset: 0
+      })
+      this.servies = data
+    },
     async $_getCarousel () {
       const data = await CarouselApi.getCarousel()
       this.carousels = data
+    },
+    async $_getUsers () {
+      const data = await UsersApi.getList({
+        limit: 5,
+        offset: 0
+      })
+      this.users = data
     }
   },
   components: {
