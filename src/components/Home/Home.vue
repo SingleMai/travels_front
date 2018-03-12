@@ -15,11 +15,11 @@
       <bar-slide></bar-slide>
     </div>
     <div class="playing-recommend">
-      <block-title title="玩法推荐" subTitle="精选推荐好玩的景区、去处"></block-title>
+      <block-title title="人气推荐" subTitle="热门用户"></block-title>
       <user-card v-for="(item, key) in users" :data="item" :key="key"></user-card>
     </div>
     <div class="playing-recommend">
-      <block-title title="人气推荐" subTitle="用心推荐、优质体验"></block-title>
+      <block-title title="玩法推荐" subTitle="精选推荐好玩的景区、去处"></block-title>
       <server-card v-for="(item, key) in servies"
                    :key="key"
                    :data="item"

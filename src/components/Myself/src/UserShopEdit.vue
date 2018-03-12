@@ -10,11 +10,12 @@
     </div>
     <mt-field label="标题" placeholder="请输入标题" v-model="title"></mt-field>
     <mt-field label="价格" placeholder="请输入价格" v-model="price" type="number"></mt-field>
-    <mt-radio
+    <mt-checklist
+      @change="checklistChange"
       title="服务类别列表"
-      v-model="type"
+      :value.sync="type"
       :options="typesOptions">
-    </mt-radio>
+    </mt-checklist>
     <editor1 :content="content"
              :height="400"
              @change="updateContent"
@@ -99,13 +100,16 @@ export default {
       currentFile: null,
       title: '',
       price: '',
-      type: '',
+      type: [],
       content: ''
     }
   },
   methods: {
     back () {
       this.$router.go(-1)
+    },
+    checklistChange (val) {
+      this.type = val
     },
     updateContent (content) {
       this.content = content
@@ -129,7 +133,7 @@ export default {
       formData.append('title', this.title)
       formData.append('price', this.price)
       formData.append('content', this.content)
-      formData.append('typeId', this.type)
+      formData.append('type', this.type.join('||'))
       formData.append('head', this.currentFile)
       await ServiesApi.createServies(formData)
     },
@@ -145,7 +149,7 @@ export default {
       for (const key in types) {
         options.push({
           label: types[key],
-          value: key
+          value: types[key]
         })
       }
       return options

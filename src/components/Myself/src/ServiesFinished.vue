@@ -13,8 +13,7 @@
       </div>
     </div>
     <div class="btn-box">
-      <p class="btn-cancel" @click="cancelOrders">取消订单</p>
-      <p class="btn-pay" @click="notice">去提醒</p>
+      <p class="btn-pay">去评价</p>
     </div>
   </div>
 </template>
@@ -53,18 +52,6 @@ export default {
     }
   },
   methods: {
-    notice () {
-      this.$router.push({
-        name: 'Chating',
-        params: {
-          id: this.data.user.id
-        },
-        query: {
-          name: this.data.user.name,
-          head: this.data.user.head
-        }
-      })
-    },
     async cancelOrders () {
       await MessageBox.confirm('是否确定取消订单', '提示')
       try {

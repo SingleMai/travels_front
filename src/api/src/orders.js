@@ -11,6 +11,16 @@ export const getOrdersUnaccept = () => {
   return axios.get(url, Object.assign({}, options))
 }
 
+export const getOrdersConfirmed = () => {
+  const url = '/user/orders/confirmed'
+  return axios.get(url, Object.assign({}, options))
+}
+
+export const getOrdersFinish = () => {
+  const url = '/user/orders/finish'
+  return axios.get(url, Object.assign({}, options))
+}
+
 export const createOrders = data => {
   const url = '/orders'
   return axios.post(url, data, Object.assign({}, options))

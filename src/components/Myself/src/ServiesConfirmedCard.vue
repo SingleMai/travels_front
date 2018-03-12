@@ -5,7 +5,7 @@
         <img :src="data.headImg" alt="">
       </div>
       <div class="info">
-        <p class="title">{{ data.title }}</p>
+        <p class="title">靠谱导游靠谱导游靠谱导游靠谱导游靠谱导游靠谱导游</p>
         <p class="time" v-show="data.orderId">{{ data.time | formateTime }}</p>
         <p class="price" v-if="!data.orderId">￥{{ data.price }}</p>
         <p class="price" v-else>￥{{ data.count }}</p>
@@ -14,7 +14,7 @@
     </div>
     <div class="btn-box">
       <p class="btn-cancel" @click="cancelOrders">取消订单</p>
-      <p class="btn-pay" @click="notice">去提醒</p>
+      <p class="btn-pay" @click="chat">去洽谈</p>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
     }
   },
   methods: {
-    notice () {
+    chat () {
       this.$router.push({
         name: 'Chating',
         params: {

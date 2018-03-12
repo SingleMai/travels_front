@@ -43,7 +43,7 @@ $grey-text: #919191;
   padding-top: 50px;
   .img {
     width: 100%;
-    height: 700px;
+    height: 850px;
     background: pink;
   }
   .info {

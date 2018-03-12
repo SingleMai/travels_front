@@ -10,7 +10,7 @@
     <mt-cell title="我的小店"
              icon="more"
              :is-link="true"
-             to="/user/1/shop">
+             :to="`/user/${userData.id}/shop`">
       <svg class="icon" slot="icon" aria-hidden="true">
         <use xlink:href="#icon-wxbmingxingdianpu"></use>
       </svg>
@@ -19,7 +19,7 @@
       <mt-cell title="我购买的"
               icon="more"
               :is-link="true"
-              to="/user/1/buy">
+              :to="`/user/${userData.id}/buy`">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-publishgoods_fill"></use>
@@ -28,7 +28,7 @@
       <mt-cell title="我出售的"
               icon="more"
               :is-link="true"
-              to="/user/1/sell">
+              :to="`/user/${userData.id}/sell`">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-service"></use>
@@ -37,9 +37,8 @@
     </div>
     <div class="card-margin">
       <mt-cell title="我的钱包"
-              icon="more"
               :is-link="true"
-              to="">
+              :to="`/user/${userData.id}/purse`">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-redpacket"></use>
@@ -50,7 +49,7 @@
       <mt-cell title="我的旅途"
               icon="more"
               :is-link="true"
-              to="/user/1/travels">
+              :to="`/user/${userData.id}/travels`">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-touchengkongyun"></use>
@@ -61,7 +60,7 @@
       <mt-cell title="我的收藏"
               icon="more"
               :is-link="true"
-              to="/user/1/likes">
+              :to="`/user/${userData.id}/likes`">
               <!-- slot=icon 自定义图片内容 -->
         <svg class="icon" slot="icon" aria-hidden="true">
           <use xlink:href="#icon-iconfontxingxing"></use>

@@ -16,9 +16,11 @@ const UserBuy = resolve => { import('components/Myself/src/UserBuy').then(module
 const UserSell = resolve => { import('components/Myself/src/UserSell').then(module => { resolve(module) }) }
 const UserTravels = resolve => { import('components/Myself/src/UserTravels').then(module => { resolve(module) }) }
 const UserLikes = resolve => { import('components/Myself/src/UserLikes').then(module => { resolve(module) }) }
+const UserPurse = resolve => { import('components/Myself/src/UserPurse').then(module => { resolve(module) }) }
 const Travels = resolve => { import('components/Travels/Travels').then(module => { resolve(module) }) }
 const TravelsCreate = resolve => { import('components/Travels/src/TravelsCreate').then(module => { resolve(module) }) }
 const Servies = resolve => { import('components/Servies/Servies').then(module => { resolve(module) }) }
+const QueryServies = resolve => { import('components/Servies/src/QueryServies').then(module => { resolve(module) }) }
 const ServiesBook = resolve => { import('components/Servies/src/ServiesBook').then(module => { resolve(module) }) }
 const ServiesPay = resolve => { import('components/Servies/src/ServiesPay').then(module => { resolve(module) }) }
 
@@ -72,6 +74,10 @@ export default new Router({
       path: '/servies/:id/pay',
       component: ServiesPay
     }, {
+      name: 'QueryServies',
+      path: '/servies/query/:query',
+      component: QueryServies
+    }, {
       name: 'CreateTravels',
       path: '/travels/create',
       component: TravelsCreate
@@ -107,6 +113,10 @@ export default new Router({
       name: 'UserShopEdit',
       path: '/user/:id/shop/edit',
       component: UserShopEdit
+    }, {
+      name: 'UserPurse',
+      path: '/user/:id/purse',
+      component: UserPurse
     }, {
       name: 'Chating',
       path: '/chat/:id',

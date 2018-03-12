@@ -1,6 +1,6 @@
 <template>
   <div class="search-block">
-    <a class="btn-location" href="javascript:void(0)" @click="locationClick">北京</a>
+    <a class="btn-location" href="javascript:void(0)" @click="locationClick">深圳</a>
     <div class="search" @click="searchBoxClick" >
       <i class="el-icon-search"></i>
       <span>搜索目的地、玩法、景区</span>

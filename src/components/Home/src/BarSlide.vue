@@ -1,7 +1,7 @@
 <template>
   <div class="bar-slide-box">
     <ul class="bar-slide-list">
-      <li class="bar-slide-item" v-for="(item, index) in data" :key="index">
+      <li class="bar-slide-item" v-for="(item, index) in data" :key="index" @click="route2(item.title)">
         <div class="img">
           <img :src="item.img" alt="">
         </div>
@@ -53,6 +53,11 @@ export default {
           title: '租车'
         }
       ]
+    }
+  },
+  methods: {
+    route2 (query) {
+      this.$router.push({ name: 'QueryServies', params: { query } })
     }
   }
 }
