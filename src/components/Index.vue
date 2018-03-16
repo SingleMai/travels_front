@@ -9,6 +9,15 @@
         <el-menu-item index="/users">
           <span slot="title">用户管理</span>
         </el-menu-item>
+        <el-menu-item index="/servers">
+          <span slot="title">服务管理</span>
+        </el-menu-item>
+        <el-menu-item index="/travels">
+          <span slot="title">旅途管理</span>
+        </el-menu-item>
+        <el-menu-item index="/travels">
+          <span slot="title">旅途管理</span>
+        </el-menu-item>
       </el-menu>
     </div>
     <div class="content">

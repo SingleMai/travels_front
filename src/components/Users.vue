@@ -21,11 +21,6 @@
         prop="phone"
         label="电话">
       </el-table-column>
-      <el-table-column
-        prop="permission"
-        label="权限">
-        <el-tag slot-scope="scope">{{ scope.row.permission | formatePermission }}</el-tag>
-      </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
@@ -53,16 +48,6 @@
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="currentItem.email"></el-input>
         </el-form-item>
-        <el-form-item label="权限" prop="permisson">
-          <el-select v-model="currentItem.permission" placeholder="请赋予用户的权限">
-            <el-option
-              v-for="(item, key) in typesOptions"
-              :key="key"
-              :value="parseInt(key)"
-              :label="item">
-            </el-option>
-          </el-select>
-        </el-form-item>
         <el-form-item label="手机" prop="phone">
           <el-input v-model="currentItem.phone"></el-input>
         </el-form-item>
@@ -70,27 +55,6 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDialog">取 消</el-button>
         <el-button type="primary" @click="confirmDialog('ruleDialog')">确 定</el-button>
-      </span>
-    </el-dialog>
-    <el-dialog
-      title="修改管理操作密码"
-      :visible.sync="passwordDialog"
-      @close='passwordDialog = false'
-      size="tiny">
-      <el-form label-position="top" label-width="80px" :model="passwordItem" :rules="passwordRules">
-        <el-form-item label="旧密码" prop="old">
-          <el-input v-model="passwordItem.old" type="password"></el-input>
-        </el-form-item>
-        <el-form-item label="新密码" prop="password">
-          <el-input v-model="passwordItem.password" type="password"></el-input>
-        </el-form-item>
-        <el-form-item label="再次输入新密码" prop="again">
-          <el-input v-model="passwordItem.again" type="password"></el-input>
-        </el-form-item>
-      </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="passwordDialog = false;passwordItem = {}">取 消</el-button>
-        <el-button type="primary" @click="updatePassword">确 定</el-button>
       </span>
     </el-dialog>
   </div>
