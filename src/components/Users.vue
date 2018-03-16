@@ -14,18 +14,27 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="email"
-        label="邮箱">
+        prop="head"
+        label="头像">
+        <template slot-scope="scope">
+          <img style="height: 100px;width:100px;" :src="scope.row.head" alt="">
+        </template>
       </el-table-column>
       <el-table-column
-        prop="phone"
-        label="电话">
+        label="认证内容">
+        <template slot-scope="scope">
+          <el-tag v-if="scope.row.hasShop === 1">向导</el-tag>
+          <el-tag v-if="scope.row.hasIdCard === 1">实名认证</el-tag>
+          <el-tag v-if="scope.row.hasGuideCard === 1">导游认证</el-tag>
+          <el-tag v-if="scope.row.hasEduCard === 1">学历认证</el-tag>
+          <el-tag v-if="scope.row.hasDriveCard === 1">驾驶证认证</el-tag>
+        </template>
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
             size="mini"
-            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            @click="getDetail(scope.$index, scope.row)">详情</el-button>
           <el-button
             size="mini"
             type="danger"
@@ -33,6 +42,13 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 详情弹窗 -->
+    <slide-dialog v-if="detailDialogVisable" @close="detailDialogVisable=false">
+      <header class='header-dialog-title'>
+        <h2 class='header-dialog-content'>{{ currentItem.desc }}用户详情</h2>
+      </header>
+      <user-detail-dialog :data="currentItem"></user-detail-dialog>
+    </slide-dialog>
     <el-dialog title="添加/修改用户"
                :visible.sync="dialogVisible"
                @before-close='closeDialog'
@@ -60,13 +76,12 @@
   </div>
 </template>
 <script>
-import { userApi } from 'api/index.js'
-
-let typesOptions = {}
+import { UserApi } from 'api/index.js'
+import SlideDialog from 'base/SlideDialog'
+import UserDetailDialog from './UserDetailDialog'
 
 export default {
   mounted () {
-    this.$_getPermissionType()
     this.$_getUserList()
   },
   data () {
@@ -75,8 +90,8 @@ export default {
         textAlign: 'center'
       },
       dialogVisible: false,
+      detailDialogVisable: false,
       passwordDialog: false,
-      typesOptions: {},
       data: [],
       currentInex: null,
       currentItem: {},
@@ -88,39 +103,15 @@ export default {
       }
     }
   },
-  filters: {
-    formatePermission (val) {
-      val = parseInt(val)
-      return typesOptions[val]
-    }
-  },
   methods: {
-    handleEdit (index, row) {
+    // handleEdit (index, row) {
+    //   this.currentItem = JSON.parse(JSON.stringify(row))
+    //   this.currentInex = index
+    //   this.dialogVisible = true
+    // },
+    getDetail (index, row) {
       this.currentItem = JSON.parse(JSON.stringify(row))
-      this.currentInex = index
-      this.dialogVisible = true
-    },
-    async updatePassword () {
-      if (this.passwordItem.password !== this.passwordItem.again) {
-        this.$message({
-          showClose: true,
-          message: '两次密码输入不一致',
-          type: 'error'
-        })
-      } else {
-        try {
-          await userApi.updatePass(Object.assign({}, {
-            old: this.passwordItem.old,
-            password: this.passwordItem.password
-          }))
-          this.passwordDialog = false
-          this.$message.success('修改密码成功！')
-        } catch (err) {
-          this.passwordDialog = false
-          this.$message.error(`修改密码失败： ${err.message}`)
-        }
-      }
-      this.passwordItem = {}
+      this.detailDialogVisable = true
     },
     async handleDelete (index, row) {
       await this.$confirm('删除的内容将无法再恢复，请确认删除?', '提示', {
@@ -129,7 +120,7 @@ export default {
         type: 'warning'
       })
       try {
-        await userApi.deleteUser(row.id)
+        await UserApi.deleteUser(row.id)
         this.data.splice(index, 1)
         this.$message.success(`删除用户信息成功！`)
       } catch (err) {
@@ -158,7 +149,7 @@ export default {
             if (origDate.phone) {
               data.phone = origDate.phone
             }
-            await userApi.updateUser(data)
+            await UserApi.updateUser(data)
             this.$set(this.data, this.currentInex, data)
             this.resetDate()
             this.$message.success(`更新用户信息成功！`)
@@ -167,7 +158,7 @@ export default {
           }
         } else {
           try {
-            const result = await userApi.createUser(this.currentItem)
+            const result = await UserApi.createUser(this.currentItem)
             this.data.push({
               id: result.id,
               name: result.name,
@@ -192,12 +183,16 @@ export default {
     },
     async $_getUserList () {
       try {
-        const users = await userApi.getUsers()
+        const users = await UserApi.getUsers()
         this.data = users
       } catch (err) {
         this.$message.error(`获取用户列表失败<br>${err.message}`)
       }
     }
+  },
+  components: {
+    SlideDialog,
+    UserDetailDialog
   }
 }
 </script>
@@ -207,5 +202,16 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+}
+.header-dialog-title{
+  border-bottom: 1px solid #DCE1E6;
+  padding: 20px 20px 10px 20px;
+}
+.header-dialog-content{
+  font-family: 'PingFangSC-Regular';
+  font-weight: normal;
+  font-size: 14px;
+  color: #333333;
+  letter-spacing: 0.35px;
 }
 </style>

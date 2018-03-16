@@ -1,5 +1,8 @@
 import axios from 'axios'
 import router from '../router'
+import * as user from './src/user'
+
+export const UserApi = user
 
 // 拦截request，如果有token字段，则添加token到header
 axios.interceptors.request.use(

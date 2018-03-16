@@ -16,7 +16,7 @@
           <span slot="title">旅途管理</span>
         </el-menu-item>
         <el-menu-item index="/travels">
-          <span slot="title">旅途管理</span>
+          <span slot="title">身份认证管理</span>
         </el-menu-item>
       </el-menu>
     </div>
