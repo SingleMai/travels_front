@@ -136,6 +136,7 @@ export default {
       formData.append('type', this.type.join('||'))
       formData.append('head', this.currentFile)
       await ServiesApi.createServies(formData)
+      this.$router.push({ name: 'Index' })
     },
     async $_getServiesType () {
       const types = await ServiesApi.getServiesType()

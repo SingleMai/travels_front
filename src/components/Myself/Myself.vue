@@ -7,76 +7,78 @@
       <h2 class="login-title">欢迎来到TravelS!</h2>
       <p class="btn-login" @click="route2('/login')">马上登录</p>
     </div>
-    <mt-cell title="我的小店"
-             icon="more"
-             :is-link="true"
-             :to="`/user/${userData.id}/shop`">
-      <svg class="icon" slot="icon" aria-hidden="true">
-        <use xlink:href="#icon-wxbmingxingdianpu"></use>
-      </svg>
-    </mt-cell>
-    <div class="card-margin">
-      <mt-cell title="我购买的"
+    <div v-if="userData">
+      <mt-cell title="我的小店"
               icon="more"
               :is-link="true"
-              :to="`/user/${userData.id}/buy`">
-              <!-- slot=icon 自定义图片内容 -->
+              :to="`/user/${userData.id}/shop`">
         <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-publishgoods_fill"></use>
+          <use xlink:href="#icon-wxbmingxingdianpu"></use>
         </svg>
       </mt-cell>
-      <mt-cell title="我出售的"
-              icon="more"
-              :is-link="true"
-              :to="`/user/${userData.id}/sell`">
-              <!-- slot=icon 自定义图片内容 -->
-        <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-service"></use>
-        </svg>
-      </mt-cell>
-    </div>
-    <div class="card-margin">
-      <mt-cell title="我的钱包"
-              :is-link="true"
-              :to="`/user/${userData.id}/purse`">
-              <!-- slot=icon 自定义图片内容 -->
-        <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-redpacket"></use>
-        </svg>
-      </mt-cell>
-    </div>
-    <div class="card-margin">
-      <mt-cell title="我的旅途"
-              icon="more"
-              :is-link="true"
-              :to="`/user/${userData.id}/travels`">
-              <!-- slot=icon 自定义图片内容 -->
-        <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-touchengkongyun"></use>
-        </svg>
-      </mt-cell>
-    </div>
-    <div class="card-margin">
-      <mt-cell title="我的收藏"
-              icon="more"
-              :is-link="true"
-              :to="`/user/${userData.id}/likes`">
-              <!-- slot=icon 自定义图片内容 -->
-        <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-iconfontxingxing"></use>
-        </svg>
-      </mt-cell>
-    </div>
-    <div class="card-margin">
-      <mt-cell title="设置"
-              icon="more"
-              :is-link="true"
-              to="">
-              <!-- slot=icon 自定义图片内容 -->
-        <svg class="icon" slot="icon" aria-hidden="true">
-          <use xlink:href="#icon-shezhi"></use>
-        </svg>
-      </mt-cell>
+      <div class="card-margin">
+        <mt-cell title="我购买的"
+                icon="more"
+                :is-link="true"
+                :to="`/user/${userData.id}/buy`">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-publishgoods_fill"></use>
+          </svg>
+        </mt-cell>
+        <mt-cell title="我出售的"
+                icon="more"
+                :is-link="true"
+                :to="`/user/${userData.id}/sell`">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-service"></use>
+          </svg>
+        </mt-cell>
+      </div>
+      <div class="card-margin">
+        <mt-cell title="我的钱包"
+                :is-link="true"
+                :to="`/user/${userData.id}/purse`">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-redpacket"></use>
+          </svg>
+        </mt-cell>
+      </div>
+      <div class="card-margin">
+        <mt-cell title="我的旅途"
+                icon="more"
+                :is-link="true"
+                :to="`/user/${userData.id}/travels`">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-touchengkongyun"></use>
+          </svg>
+        </mt-cell>
+      </div>
+      <div class="card-margin">
+        <mt-cell title="我的收藏"
+                icon="more"
+                :is-link="true"
+                :to="`/user/${userData.id}/likes`">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-iconfontxingxing"></use>
+          </svg>
+        </mt-cell>
+      </div>
+      <div class="card-margin">
+        <mt-cell title="设置"
+                icon="more"
+                :is-link="true"
+                to="">
+                <!-- slot=icon 自定义图片内容 -->
+          <svg class="icon" slot="icon" aria-hidden="true">
+            <use xlink:href="#icon-shezhi"></use>
+          </svg>
+        </mt-cell>
+      </div>
     </div>
   </div>
 </template>

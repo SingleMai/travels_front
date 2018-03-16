@@ -147,8 +147,10 @@ export default {
   }
 }
 .instru-content {
-  padding: 10px;
+  padding: 30px;
   background: white;
   color: $grey-text;
+  line-height: 90px;
+  font-size: 55px;
 }
 </style>
