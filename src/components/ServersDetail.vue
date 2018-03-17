@@ -79,7 +79,8 @@ export default {
       font-weight: bold;
     }
     .info {
-      width: 100%;
+      width: 80%;
+      word-wrap:break-word;
     }
     .info-table {
       display: flex;
