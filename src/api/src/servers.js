@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { options } from './config'
 
-export const getUsers = () => {
-  const url = '/backen/users'
-  return axios.get(url, Object.assign({}, options, { }))
+export const getServers = (data) => {
+  const url = '/api/servies'
+  return axios.get(url, Object.assign({}, options, { params: data }))
 }
 
 export const getDetail = (data) => {
