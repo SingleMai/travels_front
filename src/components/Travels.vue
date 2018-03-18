@@ -57,6 +57,15 @@ export default {
     }
   },
   methods: {
+    async handleDelete (index) {
+      await this.$confirm('删除的内容将无法再恢复，请确认删除?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+      this.data.splice(index, 1)
+      this.$message.success('删除成功！')
+    },
     async $_getData () {
       const data = await TravelsApi.getTravels({
         limit: this.limit,

@@ -33,11 +33,11 @@
           <el-button
             type="success"
             size="mini"
-            @click="getDetail(scope.$index, scope.row)">审核通过</el-button>
+            @click="checkPass(scope.$index, scope.row)">审核通过</el-button>
           <el-button
             size="mini"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">审核不通过</el-button>
+            @click="checkUnPass(scope.$index, scope.row)">审核不通过</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -55,6 +55,16 @@ export default {
         name: '小可爱',
         img: imgSrc
       }]
+    }
+  },
+  methods: {
+    checkPass (index) {
+      this.data.splice(index, 1)
+      this.$message.success('审核通过！')
+    },
+    checkUnPass (index) {
+      this.data.splice(index, 1)
+      this.$message.error('审核不通过！')
     }
   }
 }

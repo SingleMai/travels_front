@@ -119,13 +119,14 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       })
-      try {
-        await UserApi.deleteUser(row.id)
-        this.data.splice(index, 1)
-        this.$message.success(`删除用户信息成功！`)
-      } catch (err) {
-        this.$message.error(`删除用户信息失败:  ${err.message}`)
-      }
+      this.data.splice(index, 1)
+      // try {
+      //   await UserApi.deleteUser(row.id)
+      //   this.data.splice(index, 1)
+      //   this.$message.success(`删除用户信息成功！`)
+      // } catch (err) {
+      //   this.$message.error(`删除用户信息失败:  ${err.message}`)
+      // }
     },
     async closeDialog (done) {
       // 用户并没有编辑过内容，则直接跳过
