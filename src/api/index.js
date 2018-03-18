@@ -1,4 +1,5 @@
 import axios from 'axios'
+<<<<<<< HEAD
 import * as Travels from 'api/src/travels'
 import * as Users from 'api/src/users'
 import * as Carousel from 'api/src/carousel'
@@ -13,6 +14,18 @@ export const ServiesApi = Servies
 export const OrdersApi = Orders
 export const ChatApi = Chat
 
+=======
+import router from '../router'
+import * as user from './src/user'
+import * as servers from './src/servers'
+import * as travels from './src/travels'
+
+export const UserApi = user
+export const ServersApi = servers
+export const TravelsApi = travels
+
+// 拦截request，如果有token字段，则添加token到header
+>>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
 axios.interceptors.request.use(
   config => {
     const token = window.localStorage.getItem('token')
@@ -57,6 +70,7 @@ axios.interceptors.response.use((response) => {
         result.message = '新增内容已存在'
         break
 
+<<<<<<< HEAD
       case -7:
         result.message = '邮箱未注册'
         break
@@ -72,6 +86,62 @@ axios.interceptors.response.use((response) => {
         break
 
       case -5000:
+=======
+      case -4:
+        result.message = '该优先级已被使用'
+        break
+
+      case -5:
+        result.message = '密码错误'
+        break
+
+      case -6:
+        result.message = '邮箱错误或不存在'
+        break
+
+      case -7:
+        result.message = '身份验证失败，token已过期'
+        // 身份认证失败则回退到登录页面
+        window.localStorage.removeItem('token')
+        router.replace({
+          path: '/login'
+        })
+        break
+
+      case -8:
+        result.message = 'bot配置已存在,请手动修改bot管理中的配置内容'
+        break
+
+      case -9:
+        result.message = '该用户权限不足'
+        break
+
+      case -10:
+        result.message = '文件不存在'
+        break
+
+      case -11:
+        result.message = '文件类型格式错误'
+        break
+
+      case -12:
+        result.message = '更新文件出错'
+        break
+
+      case -13:
+        result.message = '文件内容格式出错'
+        break
+
+      case -14:
+        result.message = '想更新的值是唯一且被使用.请检查'
+        break
+
+      case -15:
+        result.message = '该项内容正在被其他内容引用，请取消引用后删除'
+        break
+
+      case -4000:
+>>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
         result.message = '后台服务出错'
         break
 

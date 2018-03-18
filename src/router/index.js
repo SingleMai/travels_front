@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // 异步加载组件
+<<<<<<< HEAD
 const Login = resolve => { import('components/Login').then(module => { resolve(module) }) }
 const Index = resolve => { import('components/Index').then(module => { resolve(module) }) }
 const Home = resolve => { import('components/Home/Home').then(module => { resolve(module) }) }
@@ -23,6 +24,14 @@ const Servies = resolve => { import('components/Servies/Servies').then(module =>
 const QueryServies = resolve => { import('components/Servies/src/QueryServies').then(module => { resolve(module) }) }
 const ServiesBook = resolve => { import('components/Servies/src/ServiesBook').then(module => { resolve(module) }) }
 const ServiesPay = resolve => { import('components/Servies/src/ServiesPay').then(module => { resolve(module) }) }
+=======
+const Index = resolve => { import('components/Index').then(module => { resolve(module) }) }
+const Login = resolve => { import('components/Login').then(module => { resolve(module) }) }
+const Users = resolve => { import('components/Users').then(module => { resolve(module) }) }
+const Travels = resolve => { import('components/Travels').then(module => { resolve(module) }) }
+const Servers = resolve => { import('components/Servers').then(module => { resolve(module) }) }
+const Validate = resolve => { import('components/Validate').then(module => { resolve(module) }) }
+>>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
 
 Vue.use(Router)
 
@@ -32,6 +41,7 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+<<<<<<< HEAD
     },
     {
       path: '/',
@@ -121,6 +131,34 @@ export default new Router({
       name: 'Chating',
       path: '/chat/:id',
       component: Chating
+=======
+    }, {
+      path: '/',
+      name: 'Index',
+      component: Index,
+      children: [
+        {
+          path: '/users',
+          name: 'Users',
+          component: Users
+        },
+        {
+          path: '/servers',
+          name: 'Servers',
+          component: Servers
+        },
+        {
+          path: '/travels',
+          name: 'Travels',
+          component: Travels
+        },
+        {
+          path: '/validate',
+          name: 'Validate',
+          component: Validate
+        }
+      ]
+>>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
     }
   ]
 })
