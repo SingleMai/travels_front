@@ -1,42 +1,11 @@
 <template>
-<<<<<<< HEAD
   <div class="content">
     <router-view class="barHeight"></router-view>
     <tar-bar :v-show="getShowBar"></tar-bar>
-=======
-  <div>
-    <div class="menu-box">
-      <el-menu
-        :default-active="route"
-        :router="true"
-        class="el-menu-vertical-demo"
-      >
-        <el-menu-item index="/users">
-          <span slot="title">用户管理</span>
-        </el-menu-item>
-        <el-menu-item index="/servers">
-          <span slot="title">服务管理</span>
-        </el-menu-item>
-        <el-menu-item index="/orders">
-          <span slot="title">订单管理</span>
-        </el-menu-item>
-        <el-menu-item index="/travels">
-          <span slot="title">旅途管理</span>
-        </el-menu-item>
-        <el-menu-item index="/validate">
-          <span slot="title">身份认证管理</span>
-        </el-menu-item>
-      </el-menu>
-    </div>
-    <div class="content">
-      <router-view/>
-    </div>
->>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import TarBar from 'base/TarBar'
 import { mapGetters } from 'vuex'
 
@@ -53,17 +22,6 @@ export default {
   },
   components: {
     TarBar
-=======
-
-export default {
-  data () {
-    return {
-      route: null,
-      loading: null
-    }
-  },
-  methods: {
->>>>>>> 85dd75f138c9e9142230004ec3f8dee5e1ba363c
   }
 }
 </script>
