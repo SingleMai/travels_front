@@ -25,7 +25,7 @@
     </mt-navbar>
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="shop">
-        <p></p>
+        <p class="no-data">暂无数据</p>
       </mt-tab-container-item>
       <mt-tab-container-item id="instru">
         <p class="instru-content" v-html="data.instroduction"></p>

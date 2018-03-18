@@ -36,6 +36,9 @@ export default {
     }
   },
   methods: {
+    back () {
+      this.$router.go(-1)
+    },
     async serviesBook () {
       const data = await OrdersApi.createOrders({
         serviesId: parseInt(this.id),
