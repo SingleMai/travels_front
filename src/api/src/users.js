@@ -25,3 +25,8 @@ export const getUsersInfo = data => {
   const url = '/user'
   return axios.get(url, Object.assign({}, options, { params: data }))
 }
+
+export const updateToken = () => {
+  const url = '/token/update'
+  return axios.get(url, Object.assign({}, options))
+}
